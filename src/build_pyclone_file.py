@@ -31,6 +31,7 @@ pyclonefile.columns = ['mutation_id','DP','var_counts','variant_freq']
 
 pyclonefile['ref_counts'] = pyclonefile['DP'] - pyclonefile['var_counts']
 pyclonefile = pyclonefile[['mutation_id','ref_counts','var_counts','variant_freq']]
+pyclonefile['variant_freq'] = pyclonefile['variant_freq'] / 100
 
 pyclonefile['chrom'] = pyclonefile['mutation_id'].str.split(':').str[1]
 pyclonefile['pos'] = pyclonefile['mutation_id'].str.split(':').str[2]
